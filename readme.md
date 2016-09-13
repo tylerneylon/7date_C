@@ -16,7 +16,8 @@ small tweaks, in linux.
 If you're hardcore about the 7date, you may want it in your path:
 
     # Run this from the repo's directory after building.
-    $ sudo ln -s $(pwd)/7date /usr/local/bin/7date
+    sudo ln $(pwd)/7date /usr/local/bin/7date
+    sudo ln $(pwd)/man1/7date.1 /usr/share/man/man1/
 
 ## Running
 
