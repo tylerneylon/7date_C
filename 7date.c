@@ -44,7 +44,7 @@
 #if defined(__linux__)
     #define MODIFIED_TIME st_mtime
 #else
-    #define MODIFIED_TIME st_mtimespec.tv_spec
+    #define MODIFIED_TIME st_mtimespec.tv_sec
 #endif
 
 
