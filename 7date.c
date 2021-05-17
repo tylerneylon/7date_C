@@ -38,6 +38,16 @@
 #define BUF_SIZE 64
 
 
+// Support macOS and Linux.
+// (I have not even tried to compile this on Windows,
+//  so I'm guessing it would need some modifcations there.)
+#if defined(__linux__)
+    #define MODIFIED_TIME st_mtime
+#else
+    #define MODIFIED_TIME st_mtimespec.tv_spec
+#endif
+
+
 // Internal types and globals.
 
 typedef enum {
@@ -137,7 +147,7 @@ int main(int argc, char **argv) {
       print_usage();
       return 1;  // 1 --> application error
     }
-    time_sec = st.st_mtimespec.tv_sec;
+    time_sec = st.MODIFIED_TIME;
   } else {
     time(&time_sec);
   }
