@@ -1,4 +1,4 @@
-.TH 7DATE 1 "661.2015"
+.TH 7DATE 1 "253.2021"
 .SH NAME
 7date \- display the date in the 7date calendar
 .SH SYNOPSIS
@@ -11,17 +11,21 @@ When
 .B 7date
 is called without a \fIfilename\fR,
 it prints the current date in the 7date calendar.
-This is the day of the year - starting with 1 for January 1st - written in
-base-7 followed by the year. For example, January 31st 2026 is written as
-43.2026 since 43 is the base-7 notation for the base-10 number 31.
-February 1st 2026, being the 32nd day of the year, is written as 44.2026.
+The 7date begins with the number of previous days in the year
+- starting with 0 on January 1st - written in
+base 7. This is followed by the year in base 10.
+For example, January 31st 2026 is written as
+42.2026 since 42 is the base-7 notation for the base-10 number 30.
+February 1st 2026, having 31 days before it, is written as 43.2026.
 .PP
 When a filename is given, the modification time of that file is used to
 determine the date printed.
 .PP
 When the \-d option is provided, the 7date's digital notation is given. For
-example, February 1st 2026 is written as 2026-0044. This notation has fixed
+example, February 1st 2026 is written as 2026-0043. This notation has fixed
 length and all digits are in order by descending significance. This makes it
 easier to sort or filter such 7dates when they're stored as part of a list.
+For example, if you want to use the 7date as a timestamp in your filenames, it's
+better to use the \-d flag.
 .SH AUTHORS
 Tyler Neylon <tylerneylon@gmail.com>
